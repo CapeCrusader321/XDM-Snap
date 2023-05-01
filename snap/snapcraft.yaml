@@ -7,79 +7,37 @@ description: |
 grade: stable
 confinement: strict
 compression: lzo
-
 architectures:
   - build-on: amd64
-    build-for: amd64
-    
+    build-for: amd64 
 package-repositories:
   - type: apt
     ppa: tomtomtom/yt-dlp
-
-
-plugs:
-  shmem:
-    interface: shared-memory
-    private: true
-  
     
 apps:
   xdm-snap: 
-    command: opt/xdman/xdm-app --no-sandbox --disable-seccomp-filter-sandbox
+    command: opt/xdman/xdm-app
     extensions: [gnome]
-    environment:
-      TMPDIR: $XDG_RUNTIME_DIR
-      GTK_USE_PORTAL: '1'
-       
+    desktop: usr/share/applications/xdm-app.desktop
     plugs:
       - home
       - network
       - network-bind
-      - shmem
+      - network-status
+      - raw-usb
+      - browser-support
       - process-control
       - audio-playback
       - removable-media
       - unity7
       - screen-inhibit-control
- 
 
 parts:
-  libraries:
-    plugin: nil
-    stage-packages:
-      - libgtk-3-0
-      - libc6
-      - libgssapi-krb5-2
-      - libicu70
-      - libssl3
-      - liblttng-ust1
-      - libstdc++6
-      - zlib1g
-      - libgcc-s1
-      - libgdk-pixbuf-2.0-0
-      - libgdk-pixbuf2.0-common
-    
-    prime:
-      - usr/lib/*/libgtk-3-0*
-      - usr/lib/*/libc6*
-      - usr/lib/*/libgssapi-krb5-2*
-      - usr/lib/*/libicu70*
-      - usr/lib/*/libssl3*
-      - usr/lib/*/liblttng-ust1*
-      - usr/lib/*/libstdc++6*
-      - usr/lib/*/zlib1g*
-      - usr/lib/*/libgcc-s1*
-      - usr/lib/*/libgdk-pixbuf-2.0-0*
-      - usr/lib/*/libgdk-pixbuf2.0-common*
-  
   xdm-snap:
     source: https://github.com/subhra74/xdm-experimental-binaries/releases/download/8.0.25-beta/xdman_gtk_8.0.25_amd64.deb
     plugin: dump
-    override-pull: |
-      craftctl default
-      rm -rf usr/bin/xdman usr/share/applications/xdm-app.desktop
     stage-packages:
-      - wget
+      - curl
       - yt-dlp
       - ffmpeg 
       - hicolor-icon-theme
