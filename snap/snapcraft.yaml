@@ -1,4 +1,4 @@
-name: xdm-snap
+name: xdman
 base: core22
 version: '8.0.26'
 summary: XDM Is Free and Advanced Download Manger for Linux
@@ -14,7 +14,7 @@ environment:
    PYTHONPATH: ${SNAP}/lib/python3.10/site-packages:${SNAP}/usr/lib/python3/dist-packages
 
 apps:
-  xdm-snap: 
+  xdman: 
     command: opt/xdman/xdm-app
     extensions: [gnome]
     environment: 
@@ -92,7 +92,7 @@ parts:
       - -bin/pip3.10
       - -pyvenv.cfg
   
-  xdm-snap:
+  xdman:
     source: https://github.com/subhra74/xdm/releases/download/8.0.26/xdman_gtk_8.0.26_amd64.deb
     plugin: dump
     stage-packages:
