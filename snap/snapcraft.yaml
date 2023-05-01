@@ -19,6 +19,7 @@ apps:
     extensions: [gnome]
     environment: 
        GTK_USE_PORTAL: '1'
+       LD_LIBRARY_PATH: $SNAP/bin:$SNAP/lib/python3.10/site-packages:$SNAP/lib64/python3.10/site-packages
     plugs:
       - home
       - network
