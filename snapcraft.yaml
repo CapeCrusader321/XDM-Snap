@@ -18,6 +18,8 @@ apps:
   xdm-snap: 
     command: opt/xdman/xdm-app
     extensions: [gnome]
+    environment: 
+       GTK_USE_PORTAL: '1'
     desktop: usr/share/applications/xdm-app.desktop
     plugs:
       - home
