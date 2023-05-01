@@ -94,7 +94,6 @@ parts:
   
   xdm-snap:
     source: https://github.com/subhra74/xdm/releases/download/8.0.26/xdman_gtk_8.0.26_amd64.deb
-    after: [yt-dlp, ffmpeg]
     plugin: dump
     stage-packages:
       - curl 
