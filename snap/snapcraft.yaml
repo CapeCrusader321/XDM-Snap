@@ -55,7 +55,6 @@ parts:
       - --enable-gnutls
       - --enable-libmp3lame
       - --enable-libvorbis
-      - --enable-libvpx
       - --enable-opengl
       - --enable-vaapi
     build-packages:
