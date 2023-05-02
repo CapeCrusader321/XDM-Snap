@@ -69,6 +69,7 @@ parts:
       - libva-dev
     stage-packages:
       - libmp3lame0
+      - libopenh264-6
     stage:
       - -usr/include
   
