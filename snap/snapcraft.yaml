@@ -35,7 +35,7 @@ apps:
       - screen-inhibit-control
 
 parts:
-  ffmpeg:
+ ffmpeg:
     # WORKAROUND:
     # Build from source because the ffmpeg package installs libraries as dependencies
     # that conflict with the Gnome extension
@@ -49,33 +49,22 @@ parts:
       - --disable-doc
       - --disable-static
       - --enable-gpl
-      - --enable-avcodec
-      - --enable-libopenh264
       - --enable-shared
       - --disable-ffplay
       - --disable-devices
       - --enable-gnutls
       - --enable-libmp3lame
       - --enable-libvorbis
-      - --enable-opengl
-      - --enable-vaapi
     build-packages:
       - nasm
-      - libopenh264-dev
       - libgnutls28-dev
       - libmp3lame-dev
       - libvorbis-dev
-      - libvdpau-dev
-      - libsdl2-dev
-      - libtool
-      - libva-dev
     stage-packages:
       - libmp3lame0
-      - libopenh264-6
-      - libva-drm2
     stage:
       - -usr/include
-  
+
   yt-dlp:
     # Missing optional dependencies atomicparsley, mpv, phantomjs and rtmpdump
     after: [ffmpeg]
