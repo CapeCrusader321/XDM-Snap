@@ -35,7 +35,7 @@ apps:
       - screen-inhibit-control
 
 parts:
- ffmpeg:
+  ffmpeg:
     # WORKAROUND:
     # Build from source because the ffmpeg package installs libraries as dependencies
     # that conflict with the Gnome extension
