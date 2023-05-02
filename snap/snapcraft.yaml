@@ -28,6 +28,7 @@ apps:
       - browser-support
       - process-control
       - audio-playback
+      - optical-drive
       - removable-media
       - unity7
       - screen-inhibit-control
